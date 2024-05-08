@@ -24,3 +24,4 @@ function countCows(n){
 }
 
 console.log(countCows(5))
+
