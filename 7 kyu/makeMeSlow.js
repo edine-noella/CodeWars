@@ -5,19 +5,15 @@
 function makeMeSlow() {
   
     let start = Date.now();
-      let end = 0;
-    
-      console.log(start);
-    let slow = setTimeout( () => {
+    let end = 0;
+   
+   setTimeout( () => {
     for (let x = 0; x < 1000000; ++x) { }
-      end += 1000;
-      if( (end - start) > 7000  ){
-           return;
-      }
-                          
-    },1000);
+      end += 7000; 
+                         
+    }, 7);
   
-   return slow;
+   return (start-end);
   }
 
 console.log(makeMeSlow());
