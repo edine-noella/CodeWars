@@ -2,18 +2,24 @@
 // call return the variable
 //Make me slow! Calling makeMeSlow() should take at least 7 seconds.
 
-function makeMeSlow() {
+// function makeMeSlow() {
   
-    let start = Date.now();
-    let end = 0;
+//     let start = Date.now();
+//     let end = 0;
    
-   setTimeout( () => {
-    for (let x = 0; x < 1000000; ++x) { }
-      end += 7000; 
+//    setTimeout( () => {
+//     for (let x = 0; x < 1000000; ++x) { }
+//       end += 7000; 
                          
-    }, 7);
+//     }, 7);
   
-   return (start-end);
-  }
+//    return (start-end);
+//   }
+
+
+function makeMeSlow() {
+  const startTime = Date.now();
+  while (Date.now() - startTime < 7000) {}
+}
 
 console.log(makeMeSlow());
