@@ -11,10 +11,10 @@
 function convertTemp(temp, from_scale, to_scale) {
     if (from_scale === to_scale) return temp;
     if (from_scale === "C" ) {
-        if (to_scale === "F") return temp * 9 / 5 + 32;
-        if (to_scale === "K") return temp + 273.15;
-        if (to_scale === "R") return (temp + 273.15) * 9 / 5;
-        if (to_scale === "De") return (100 - temp) * 3 / 2;
+        if (to_scale === "F") return Math.round((temp *9/5) + 32);
+        if (to_scale === "K") return Math.round(temp + 273.15);
+        if (to_scale === "R") return Math.round((temp + 273.15) * 9 / 5);
+        if (to_scale === "De") return Math.round((temp * 1.5) - 100);
         if (to_scale === "N") return temp * 33 / 100;
         if (to_scale === "Re") return temp * 4 / 5;
         if (to_scale === "Ro") return temp * 21 / 40 + 7.5;
@@ -49,7 +49,7 @@ function convertTemp(temp, from_scale, to_scale) {
     if (from_scale === "De") {
         if (to_scale === "C") return 100 - temp * 2 / 3;
         if (to_scale === "F") return 212 - temp * 6 / 5;
-        if (to_scale === "K") return 373.15 - temp * 3 / 2;
+        if (to_scale === "K") return Math.round(( 373.15 - temp * 2 / 3 )) ;
         if (to_scale === "R") return 671.67 - temp * 6 / 5;
         if (to_scale === "N") return 33 - temp * 11 / 50;
         if (to_scale === "Re") return 80 - temp * 8 / 15;
