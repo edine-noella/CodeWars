@@ -13,56 +13,45 @@
 
 function score(dice) {
   let score = 0;
-  let one1 = 100;
-  let one5 = 50;
-  
+  const one1 = 100;
+  const one5 = 50;
+
   for (let i = 0; i < dice.length; i++) {
-    
 
-    if (dice.filter( (v) => v === i).length === 1) {
+      const count = dice.filter((v) => v === i).length;
+      const value = dice[i];
+
+
+    if ( count === 1) {
       
-      if (dice[i] === 1) {
+      if (value === 1) {
         score += one1;
-      } 
-
-      if (dice[i] === 5) {
+      }else if (value === 5) {
         score += one5;
       }
       
     }
     
-    if (dice.filter((v) => v === i).length === 2) {
-      if (dice[i] === 1) {
+    if (count === 2) {
+      if (value == 1) {
         score += one1 * 2;
-      }
-
-      if (dice[i] === 5) {
+      }else if (value == 5) {
         score += one5 * 2;
       }
     }
 
-    if (dice.filter((v) => v === i).length === 3) {
-      if ( dice[i] === 1) {
+    if (count === 3) {
+      if (value === 1) {
         score += 1000;
-      }
-
-      if (dice[i] === 6) {
+      }else if (value === 6) {
         score += 600;
-      }
-
-      if (dice[i] === 5) {
+      }else if (value === 5) {
         score += 500;
-      }
-
-      if (dice[i] === 4) {
+      }else if (value === 4) {
         score += 400;
-      }
-
-      if (dice[i] === 3) {
+      }else if (value === 3) {
         score += 300;
-      }
-
-      if (dice[i] === 2) {
+      }else if (value === 2) {
         score += 200;
       }
     }
