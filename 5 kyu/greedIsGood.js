@@ -11,55 +11,41 @@
 // One 1 => 100 points
 // One 5 => 50 point
 
+
 function score(dice) {
-  let score = 0;
-  const one1 = 100;
-  const one5 = 50;
+    let score = 0; 
 
-  for (let i = 0; i < dice.length; i++) {
+    let diceCount = {}; //object to store the count of each die
 
-      const count = dice.filter((v) => v === i).length;
-      const value = dice[i];
+    //count the number of each die
+    dice.forEach(die => {
+        if (diceCount[die]) {
+            diceCount[die]++;
+        } else {
+            diceCount[die] = 1;
+        }
+    });
 
+    //check for each rule
+    for (let die in diceCount) {
 
-    if ( count === 1) {
-      
-      if (value === 1) {
-        score += one1;
-      }else if (value === 5) {
-        score += one5;
-      }
-      
+        if (diceCount[die] >= 3) {
+            if (die === '1') {
+                score += 1000;
+                diceCount[die] -= 3;
+            } else {
+                score += die * 100; // each die has 100 points
+                diceCount[die] -= 3; //subtract 3 from the count of the die
+            }
+        }
+
+        if (die === '1') {
+            score += diceCount[die] * 100;
+        } else if (die === '5') {
+            score += diceCount[die] * 50; //each 5 has 50 points
+        }
     }
-    
-    if (count === 2) {
-      if (value == 1) {
-        score += one1 * 2;
-      }else if (value == 5) {
-        score += one5 * 2;
-      }
-    }
-
-    if (count === 3) {
-      if (value === 1) {
-        score += 1000;
-      }else if (value === 6) {
-        score += 600;
-      }else if (value === 5) {
-        score += 500;
-      }else if (value === 4) {
-        score += 400;
-      }else if (value === 3) {
-        score += 300;
-      }else if (value === 2) {
-        score += 200;
-      }
-    }
-    
-      
-  }
-
-  return score;
+    return score;
 }
 
 console.log(score([2, 4, 4, 5, 4])); 
