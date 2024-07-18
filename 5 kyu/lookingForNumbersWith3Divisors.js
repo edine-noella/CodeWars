@@ -1,23 +1,18 @@
-//the only difficult thing is to handle bigInt
-//will have two loops to find the divisors 
-//a counter to keep track of the number of divisors
-//and if condition if a number is a divisor or not
-//if the counter is 3 then we will increment the counter of the number
-//if the counter is 3 then we push the number to the result array
+let possibleNumbers = []
 
-function solution(n,m) {
-    let result = [];
-    for(let i = n; i <= m; i++){
-        let counter = 0;
-        for(let j = 1n; j <= i; j++){
-            if(i % j === 0n){
-                counter++;
-            }
-        }
-        if(counter === 3){
-            result.push(i);
-        }
+function solution(n, m) {
+  if (!possibleNumbers.length) {
+    for (let i = 2n; i <= 31622n; i++) {
+      if(isPrime(i)) possibleNumbers.push(i**4n)
     }
-    return result;
+  }
+  
+  return possibleNumbers.filter(number => number >= n && number <= m);
 }
-console.log(solution(2n, 100n)); 
+
+function isPrime(p) {
+  for (let i = 2n; i * i <= p; i++) {
+    if (p % i === 0n) return false;
+  }
+  return true;
+}
