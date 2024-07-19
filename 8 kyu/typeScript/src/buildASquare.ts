@@ -1,9 +1,7 @@
-"use strict";
 // I will give you an integer. Give me back a shape that is as long and wide as the integer. The integer will be a whole number between 1 and 50.
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateShape = generateShape;
-function generateShape(int) {
-    let result = "";
+
+export function generateShape(int: number): string {
+    let result: string = "";
     for (let i = 0; i < int; i++) {
         for (let j = 0; j < int; j++) {
             result += "+";
@@ -13,5 +11,6 @@ function generateShape(int) {
         }
     }
     return result;
-}
-console.log(generateShape(3));
+  }
+
+    console.log(generateShape(3)); 

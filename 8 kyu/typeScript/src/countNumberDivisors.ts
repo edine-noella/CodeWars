@@ -1,8 +1,7 @@
-"use strict";
+
 //count the divsors of a given number
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.divisors = divisors;
-function divisors(n) {
+
+export function divisors(n: number ) :number {
     let count = 0;
     for (let i = 1; i <= n; i++) {
         if (n % i === 0) {
@@ -10,5 +9,7 @@ function divisors(n) {
         }
     }
     return count;
-}
-console.log(divisors(4));
+    
+  }
+
+  console.log(divisors(4)); 
