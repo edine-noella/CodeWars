@@ -9,4 +9,4 @@ function toCamelCase(str){
     return result;
 }
 
-console.log(toCamelCase('the-stealth-warrior')) // theStealthWarrior
+console.log(toCamelCase('the-stealth-warrior')) 
